@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Dynamic Styling</h1>
+    </header>
+    <section id="styling">
+      <!--there are two ways to set the property of a class there is v-bind class
+      and v-bind style, it is more preferred to use v-bind class because you can 
+      style that class in whatever way needed but if u use v-bind style
+      you will need to style the div using inline styling -->
+      <div
+        class="demo"
+        :class="{active: boxASelected}"
+        @click="boxSelected('A')"
+      ></div>
+        <!--this is another way as we know computed can be used for dynamic changing
+        so if the code was complex we can bind a class easily with the computed
+        value-->
+      <div class="demo"
+      :class="boxB"
+      @click="boxSelected('B')"></div>
+
+        <!--this is another way which is called inline styling which is
+        not preffered alot since you can't set many properties for an
+        element-->
+      <div class="demo"
+      :style="{borderColor: boxCSelected ? 'purple' : '#ccc'}"
+      @click="boxSelected('C')"></div>
+    </section>
+  </body>
+</html>
